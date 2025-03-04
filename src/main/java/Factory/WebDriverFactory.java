@@ -11,7 +11,7 @@ public class WebDriverFactory {
     public static void initializeDriver(){
         driver = new EdgeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public static void openApp() {

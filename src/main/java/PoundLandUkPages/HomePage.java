@@ -17,6 +17,8 @@ public class HomePage {
     By emailAddressField=By.xpath("//input[@id='signInName']");
     By passwordField=By.xpath("//input[@id='password']");
     By signIn=By.xpath("//button[@type='submit' and text()='Sign in']");
+    By loginStatusMessage=By.xpath("//div[contains(@class,'pageLevel')]/p");
+    By homePageLogo=By.xpath("//div[@class='logo-block']/a[@title='Poundland']/img");
     By productSearch=By.xpath("//input[@id='search']");
     By suggestionProduct=By.xpath("(//ul[contains(@id,'acList')]/li/a)[1]");
     By searchIcon=By.xpath("//button[@type='submit' and @title='Search']");
@@ -56,5 +58,13 @@ public class HomePage {
 
     public void clickOnSignIn(){
         seleniumActions.clickOnElement(signIn);
+    }
+
+    public boolean isLogoDisplayed(){
+        return seleniumActions.homePageLogoIsDisplayedOrNot(homePageLogo);
+    }
+
+    public String getLoginCredentialsStatus(){
+        return seleniumActions.visibilityOfElementLocatedAndRetriveTheText(loginStatusMessage);
     }
 }

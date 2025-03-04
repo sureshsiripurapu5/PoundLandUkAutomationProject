@@ -4,8 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class PoundLandSeleniumActions {
@@ -61,4 +64,16 @@ public class PoundLandSeleniumActions {
         actions.moveToElement(driver.findElement(by)).click().perform();
 
     }
+
+   public boolean homePageLogoIsDisplayedOrNot(By by){
+        WebElement logo= driver.findElement(by);
+        boolean isLogoDisplayed=logo.isDisplayed();
+        return isLogoDisplayed;
+   }
+
+   public String visibilityOfElementLocatedAndRetriveTheText(By by){
+       WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+       String message=wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText();
+       return message;
+   }
 }
