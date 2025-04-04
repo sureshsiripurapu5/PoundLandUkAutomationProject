@@ -4,6 +4,7 @@ import Utilities.PoundLandSeleniumActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -11,10 +12,11 @@ public class CartPage {
 
     PoundLandSeleniumActions seleniumActions;
     public CartPage(WebDriver driver){
+        PageFactory.initElements(driver,this);
         seleniumActions=new PoundLandSeleniumActions(driver);
     }
 
-    @FindBy(xpath = "//span[@class='basket-amount']/span/span[@class='price'])[2]")
+    @FindBy(xpath = "(//span[@class='basket-amount']/span/span[@class='price'])[2]")
     WebElement cartButton;
 
     @FindBy(xpath = "//div[contains(@class,'item-details')]/strong/a")
@@ -49,6 +51,18 @@ public class CartPage {
 
     @FindBy(xpath = "//span[@class='product-price']")
     WebElement favouritesProductPriceText;
+
+    public void clickOnCartButton(){
+        seleniumActions.clickOnElement(cartButton);
+    }
+
+    public String fetchTheProductTitleTextFromTheBag(){
+        return seleniumActions.getTextMessage(cartProductTitleText);
+    }
+
+    public String fetchTheProductPriceTextFromTheBag(){
+        return seleniumActions.getTextMessage(cartProductPriceText);
+    }
 
 
 

@@ -26,8 +26,8 @@ public class HomePage {
     public void clickOnCookieButton(){
         seleniumActions.clickOnElement(cookieButton);
     }
-    public void clickOnProductSearchBar(){
-        seleniumActions.enterValue(productSearch,"chocolates");
+    public void clickOnProductSearchBarAndEnterProductName(String productName){
+        seleniumActions.enterValue(productSearch,productName);
     }
     public void clickOnSuggestionItem(){
         seleniumActions.clickOnElement(suggestionProduct);

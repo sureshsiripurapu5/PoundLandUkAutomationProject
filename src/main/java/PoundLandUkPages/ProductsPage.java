@@ -30,7 +30,7 @@ public class ProductsPage {
         return seleniumActions.getFirstProductData(productPrice);
     }
     public void clickOnAddButton(){
-        seleniumActions.clickOnElement(addButton);
+        seleniumActions.clickOnFirstProduct(addButton);
     }
 
     public void clickOnDropDown(){
